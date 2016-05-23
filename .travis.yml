@@ -5,7 +5,7 @@ script: mvn clean package
 deploy:
   provider: releases
   api_key: "${GH_TOKEN}"
-  file: "DataRecorder-1.0.0-SNAPSHOT.zip"
+  file: "/home/travis/build/chadbeaudin/DataRecorder/target/DataRecorder-1.0.0-SNAPSHOT.zip"
   skip_cleanup: true
   overwrite: true
   on:
