@@ -3,7 +3,7 @@ language: java
 script: mvn clean package
 
 deploy:
-  provider: releases
+  provider: snapshot
   api_key: "${GH_TOKEN}"
   file: "/home/travis/build/chadbeaudin/DataRecorder/target/DataRecorder-1.0.0-SNAPSHOT.zip"
   skip_cleanup: true
