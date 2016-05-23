@@ -3,7 +3,7 @@ language: java
 script: mvn clean package
 
 deploy:
-  provider: snapshot
+  provider: releases
   api_key: "${GH_TOKEN}"
   file: "/home/travis/build/chadbeaudin/DataRecorder/target/DataRecorder-1.0.0-SNAPSHOT.zip"
   skip_cleanup: true
@@ -19,9 +19,12 @@ notifications: # set notification options
   email:
     recipients:
       - DataRecorder@TheBeaudins.com
-      - Mark@MarkTemple.com
-      - digimil@gmail.com
+      #- Mark@MarkTemple.com
+      #- digimil@gmail.com
     
      # change is when the repo status goes from pass to fail or vice versa [always|never|change]
     on_success: always
     on_failure: always
+    
+    #Temporarily turn off
+    #email: false 
