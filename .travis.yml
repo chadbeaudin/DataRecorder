@@ -1,14 +1,15 @@
 language: java
 
-before_deploy: mvn package -DskipTests=true
+script: mvn clean package
 
 deploy:
   provider: releases
   api_key: "${GH_TOKEN}"
   file: "DataRecorder-1.0.0-SNAPSHOT.zip"
   skip_cleanup: true
+  overwrite: true
   on:
-    tags: true
+    tags: false #documentation says this should be true
     
 after_deploy: 
   -echo "Done with deploy to GitHub."
@@ -19,6 +20,7 @@ notifications: # set notification options
     recipients:
       - DataRecorder@TheBeaudins.com
       - Mark@MarkTemple.com
+      - digimil@gmail.com
     
      # change is when the repo status goes from pass to fail or vice versa [always|never|change]
     on_success: always
