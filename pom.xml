@@ -186,7 +186,7 @@
                 <version>2.4.1</version>
                 <configuration>
                     <descriptor>src/main/assembly/bin.xml</descriptor>
-                    <finalName>DataRecorder-${pom.version}</finalName>
+                    <finalName>DataRecorder-${project.version}</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
@@ -200,6 +200,7 @@
             </plugin>
 
         </plugins>
+        
     </build>
 
     <reporting>
