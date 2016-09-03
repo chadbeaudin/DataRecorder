@@ -52,7 +52,7 @@ public class Util {
                     "com.datarecorder.plugins.injector.TextInjector");
             propertyFile.setProperty(ChannelInjector.FILTER + ".image",
                     "com.datarecorder.plugins.injector.ImageInjector");
-            propertyFile.setProperty(DataRecorder.FILTER + ".iconOnly", "true");
+            propertyFile.setProperty(DataRecorder.FILTER + ".iconOnly", "false");
         } catch (final IOException e1) {
             MessageBox.showWarning(parent, "Error reading:" + filename);
             logger.warn("Error reading: {}", filename, e1);

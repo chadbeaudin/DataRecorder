@@ -2073,7 +2073,7 @@ public class DataRecorder extends JFrame implements TableCellEditor {
 
     private void configure() {
         // window toolbar icon labels
-        final String iconLabel = propertiesFile.getProperty(FILTER + DOT + ICONS_ONLY_PROPERTY, "true");
+        final String iconLabel = propertiesFile.getProperty(FILTER + DOT + ICONS_ONLY_PROPERTY, "false");
         if (iconLabel != null) {
             final boolean value = Boolean.valueOf(iconLabel).booleanValue();
             // menu item setSelected does not invoke the associated action
