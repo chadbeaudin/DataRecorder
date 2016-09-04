@@ -137,7 +137,7 @@ public class DataRecorder extends JFrame implements TableCellEditor {
     private static final char DOT = '.';
     private static final String HYPHEN = " - ";
     private static final String DRP_EXTENSION = ".drp";
-    private static final String TITLE = " Data Recorder";
+    private static final String TITLE = " DataRecorder";
     private static final String VIEWING_PUB = "Viewing Publication ";
     private static final String VIEWING_SUB = "Viewing Subscription ";
     private static final String SEPARATOR = System.getProperty("file.separator");
@@ -625,7 +625,7 @@ public class DataRecorder extends JFrame implements TableCellEditor {
         // Help
         final JMenu helpMenu = Util.createMenu("Help", KeyEvent.VK_H);
         // JMenuItem helpMenuItem = Util.createMenuItem("helpButton", 0, 0);
-        final JMenuItem aboutMenuItem = Util.createMenuItem("aboutButton", 0, 0);
+        final JMenuItem aboutMenuItem = Util.createMenuItem("aboutButton");
 
         // helpMenu.add(helpMenuItem);
         helpMenu.add(aboutMenuItem);
@@ -1324,14 +1324,26 @@ public class DataRecorder extends JFrame implements TableCellEditor {
 
         public void actionPerformed(final ActionEvent e) {
 
-            final ManifestReader mfer = new ManifestReader(com.datarecorder.DataRecorder.class);
+            //final ManifestReader mfer = new ManifestReader(com.datarecorder.DataRecorder.class);
 
-            final AboutDialog ad = new AboutDialog(DataRecorder.this, " About Data Recorder",
-                    "<html><b>Data Recorder</b>" + "<br>Version " + mfer.getCiBuildVersion() + "<br>Build #: "
-                            + mfer.getCiBuildVersion() + "<br>Build id: " + mfer.getCiBuildId() + "<br>SVN Revision : "
-                            + mfer.getCiBuildCmRevision() + "<br>" ,
-                    true);
-            ad.pack();
+            //final AboutDialog ad = new AboutDialog(DataRecorder.this, " About Data Recorder",
+            //        "<html><b>Data Recorder</b>" + "<br>Version " + mfer.getCiBuildVersion() + "<br>Build #: "
+            //                + mfer.getCiBuildVersion() + "<br>Build id: " + mfer.getCiBuildId() + "<br>SVN Revision : "
+            //                + mfer.getCiBuildCmRevision() + "<br>" ,
+            //        true);
+            
+            final AboutDialog ad = new AboutDialog(DataRecorder.this, " About DataRecorder",
+            		"<html><b>GitHub : DataRecorder</b>"
+            		+ "<br>"
+            		+ "<br>"
+            		+ "https://github.com/chadbeaudin/DataRecorder</br>"
+            		+ "<br><br><b>Contributors:</b>"
+            		+ "<br>Chad Beaudin"
+            		+ "<br>Mark Temple"
+            		+ "<br>Mike Kline"
+            		+ "<br></html>",
+            		true);
+            //ad.pack();
             ad.show();
 
         }

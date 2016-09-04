@@ -143,10 +143,32 @@ public class Util {
         } else {
             menuItem = new JMenuItem(DataRecorder.bundle.getString(resourceKey + MENULABEL), new ImageIcon(iconName));
         }
+        
         menuItem.setAccelerator(KeyStroke.getKeyStroke(key, mask));
+        
         return menuItem;
     }
 
+    /**
+     * Used for standard menu items
+     * 
+     * @param resourceKey
+     * @return the JMenuItem
+     */
+    public static JMenuItem createMenuItem(final String resourceKey) {
+        JMenuItem menuItem;
+        final String iconName = DataRecorder.bundle.getString(resourceKey + SMALLICON);
+        final URL url = DataRecorder.class.getResource(iconName);
+        if (url != null) {
+            menuItem = new JMenuItem(DataRecorder.bundle.getString(resourceKey + MENULABEL),
+                    new ImageIcon(Toolkit.getDefaultToolkit().getImage(url)));
+        } else {
+            menuItem = new JMenuItem(DataRecorder.bundle.getString(resourceKey + MENULABEL), new ImageIcon(iconName));
+        }
+        
+        return menuItem;
+    }
+    
     /**
      * Used for pop-ups with no accelerators.
      * 
