@@ -401,8 +401,11 @@ class PublisherThread extends Thread {
             suppressStartTimestamp = Boolean.getBoolean("publisher.suppress.start.timestamp");
             messageCount = 0;
         } catch (final FileNotFoundException e) {
-            JOptionPane.showMessageDialog(recorder, "File not found: " + file, "Error", JOptionPane.ERROR_MESSAGE);
-            logger.error("File not found: " + file, e);
+            JOptionPane.showMessageDialog(recorder, "Publisher input file not found: " + file + 
+            		"\nYou can't start this Publisher without a valid input file." +
+            		"\nYou can however still inject messages via right-click View Injector... on this Publisher.", "Publisher Start Error", JOptionPane.ERROR_MESSAGE);
+            // No need to send error to log... user was informed above (mwt)
+            //logger.error("File not found: " + file, e);
             return false;
         }
         return true;

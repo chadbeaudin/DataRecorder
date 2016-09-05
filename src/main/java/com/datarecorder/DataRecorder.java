@@ -214,7 +214,7 @@ public class DataRecorder extends JFrame implements TableCellEditor {
     private JScrollPane publishPane;
     private JScrollPane subscriberPane;
 
-    public JTable publisherTable;
+    public static JTable publisherTable;
     public JTable subscriberTable;
 
     // public DefaultTableModel publisherModel;
@@ -2426,5 +2426,9 @@ public class DataRecorder extends JFrame implements TableCellEditor {
      */
     public static Properties getPropertiesFile() {
         return propertiesFile;
+    }
+    
+    public static JTable getPublisherTable() {
+    	return publisherTable;
     }
 }

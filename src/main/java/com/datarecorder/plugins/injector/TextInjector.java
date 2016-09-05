@@ -6,10 +6,13 @@
  */
 package com.datarecorder.plugins.injector;
 
+import java.awt.Font;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import com.datarecorder.AbstractInjector;
+import com.datarecorder.DataRecorder;
 
 /**
  * @author b1085685
@@ -24,6 +27,7 @@ public class TextInjector extends AbstractInjector {
 
     public TextInjector() {
         super.addContent(scroller);
+        textfield.setFont(new Font("Helvetica", Font.PLAIN, 12));
     }
 
   
@@ -35,5 +39,6 @@ public class TextInjector extends AbstractInjector {
 
     public void publish() {
         super.publish(textfield.getText().getBytes());
+        DataRecorder.getPublisherTable().repaint();
     }
 }
