@@ -94,6 +94,10 @@ public class ChannelInjector extends EscapeDialog {
         selection.addActionListener(listener);
 
         autoDetect = new JCheckBox("Auto-detect type");
+        
+        // this does not work (mwt)
+        autoDetect.setEnabled(false);
+        
         autoDetect.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent event) {
                 autoDetect();
@@ -230,10 +234,12 @@ public class ChannelInjector extends EscapeDialog {
             if (typeName.startsWith(FILTER + ".")) {
                 final String className = properties.getProperty(typeName);
                 final PropertyType typeObject = new PropertyType(typeName.substring(FILTER.length() + 1), className);
-                list.addElement(typeObject);
-
-                if (typeObject.getTypeName().equals("text"))
+                // removed this... the whole image/html thing does not work (mwt)
+                //list.addElement(typeObject);
+                if (typeObject.getTypeName().equals("text")) {
+                	list.addElement(typeObject);
                     defaultViewer = typeObject;
+                }
             }
         }
         return list;

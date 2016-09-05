@@ -1,6 +1,7 @@
 package com.datarecorder.plugins.viewer;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -46,7 +47,7 @@ public class TextViewer extends JPanel implements Viewer {
 
     public TextViewer() {
         setLayout(new GridBagLayout());
-        bufferModel = new SpinnerNumberModel(5, 2, 200, 1);
+        bufferModel = new SpinnerNumberModel(500, 2, 10000, 1);
         bufferSpinner = new JSpinner(bufferModel);
 
         add(scroller, new GridBagConstraints(0, 0, 4, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -62,7 +63,9 @@ public class TextViewer extends JPanel implements Viewer {
                 GridBagConstraints.NONE, new Insets(4, 4, 4, 4), 0, 0));
         add(bufferSpinner, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER,
                 GridBagConstraints.NONE, new Insets(4, 4, 4, 4), 0, 0));
-
+        
+        textfield.setFont(new Font("Helvetica", Font.PLAIN, 12));
+        
         showLast.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent event) {
