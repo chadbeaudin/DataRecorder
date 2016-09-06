@@ -2,6 +2,7 @@ package com.datarecorder;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.text.NumberFormat;
 
 import javax.swing.JLabel;
@@ -22,11 +23,14 @@ public class CellRenderer extends DefaultTableCellRenderer {
         final Component c = super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, col);
 
         final JLabel label = (JLabel) c;
-
+        label.setFont(new Font("Arial", Font.PLAIN, 12));
+        
         // status
         if (col == 0) {
             if (label.getText().equals(PublisherTableValues.STOPPED)) {
                 label.setForeground(Color.RED.darker());
+            	//label.setBackground(Color.RED.darker());
+            	//label.setForeground(Color.WHITE.darker());
             } else if (label.getText().equals(PublisherTableValues.STARTED)) {
                 label.setForeground(Color.GREEN.darker());
             } else if (label.getText().equals(PublisherTableValues.PAUSED)) {
