@@ -3,6 +3,7 @@ package com.datarecorder;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -66,6 +67,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.CellEditorListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
@@ -387,9 +389,12 @@ public class DataRecorder extends JFrame implements TableCellEditor {
 
         // Publisher Panel
         final JPanel publishPanel = new JPanel(new BorderLayout());
-        publishPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Publishers"),
+        TitledBorder tb1 = BorderFactory.createTitledBorder("Publishers");
+        tb1.setTitleFont(new Font("Arial", Font.BOLD, 12));
+        publishPanel.setBorder(BorderFactory.createCompoundBorder(tb1,
                 BorderFactory.createEmptyBorder(8, 8, 8, 8)));
-
+        publishPanel.setFont(new Font("Helvetica", Font.BOLD, 13));
+        
         // setup the table so that it is sortable
         final DefaultTableModel t = new DefaultTableModel(PublisherTableValues.data, PublisherTableValues.columnNames);
         publisherModel = new TableSorter(t);
@@ -405,7 +410,8 @@ public class DataRecorder extends JFrame implements TableCellEditor {
             }
         };
         publisherModel.setTableHeader(publisherTable.getTableHeader());
-
+        publisherTable.getTableHeader().setFont(new Font("Arial", Font.PLAIN, 12));
+        
         final TableColumnModel tcm = publisherTable.getColumnModel();
         final TableColumn tc = tcm.getColumn(5);
         tc.setCellRenderer(new FileRenderer());
@@ -467,9 +473,11 @@ public class DataRecorder extends JFrame implements TableCellEditor {
 
         // Subscriber panel
         final JPanel subscriberPanel = new JPanel(new BorderLayout());
-        subscriberPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Subscribers"),
+        TitledBorder tb2 = BorderFactory.createTitledBorder("Subscribers");
+        tb2.setTitleFont(new Font("Arial", Font.BOLD, 12));
+        subscriberPanel.setBorder(BorderFactory.createCompoundBorder(tb2,
                 BorderFactory.createEmptyBorder(8, 8, 8, 8)));
-
+        
         // Setup the table so that it is sortable
         final DefaultTableModel t2 = new DefaultTableModel(SubscriberTableValues.data,
                 SubscriberTableValues.columnNames);
@@ -487,6 +495,7 @@ public class DataRecorder extends JFrame implements TableCellEditor {
             }
         };
         subscriberModel.setTableHeader(subscriberTable.getTableHeader());
+        subscriberTable.getTableHeader().setFont(new Font("Arial", Font.PLAIN, 12));
 
         final TableColumnModel tcm2 = subscriberTable.getColumnModel();
         final TableColumn tc2 = tcm2.getColumn(5);
