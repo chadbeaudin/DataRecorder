@@ -513,26 +513,29 @@ public class SubscriberEditor extends EscapeDialog {
 
             // check if file exists
             final String subFileName = file.getText();
-            final File subFile = new File(subFileName);
-            if (!subFile.exists()) {
-                try {
-                    subFile.createNewFile();
-                } catch (final IOException e) {
-                    logger.warn("File does not exist.", e);
-                }
-            } else {
-                // also check if file name changed
-                if (!subFileName.equals(originalFileName)) {
-                    final int result = JOptionPane.showConfirmDialog(SubscriberEditor.this,
-                            "This will overwrite all data in:\n" + file.getText() + "\nAre you sure?", "Warning",
-                            JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-
-                    if (result == JOptionPane.NO_OPTION) {
-                        return;
-                    }
-                }
+            
+            if (!subFileName.equals(""))  {
+	            final File subFile = new File(subFileName);
+	            if (!subFile.exists()) {
+	                try {
+	                    subFile.createNewFile();
+	                } catch (final IOException e) {
+	                    logger.warn("File does not exist.", e);
+	                }
+	            } else {
+	                // also check if file name changed
+	                if (!subFileName.equals(originalFileName)) {
+	                    final int result = JOptionPane.showConfirmDialog(SubscriberEditor.this,
+	                            "This will overwrite all data in:\n" + file.getText() + "\nAre you sure?", "Warning",
+	                            JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+	
+	                    if (result == JOptionPane.NO_OPTION) {
+	                        return;
+	                    }
+	                }
+	            }
             }
-
+            
             if (mode.equals(ADD_MODE)) {
                 action = ADD;
             }

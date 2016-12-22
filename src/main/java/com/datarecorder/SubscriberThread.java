@@ -149,12 +149,14 @@ class SubscriberThread extends Thread implements MessageListener {
             logger.error("Error closing session.", e);
         }
 
-        try {
-            dos.close();
-        } catch (final NullPointerException ignore) {
-            logger.warn("Exception occured closing output stream.", ignore);
-        } catch (final Exception e) {
-            logger.error("Error closing output stream.", e);
+        if (dos != null) {
+	        try {
+	            dos.close();
+	        } catch (final NullPointerException ignore) {
+	            logger.warn("Exception occured closing output stream.", ignore);
+	        } catch (final Exception e) {
+	            logger.error("Error closing output stream.", e);
+	        }
         }
 
         subscriberVector.set(SubscriberTableValues.STATUS, SubscriberTableValues.STOPPED);

@@ -71,6 +71,7 @@ public class PublisherEditor extends EscapeDialog {
     public static final JFileChooser fileChooser = new JFileChooser();
 
     static {
+    	fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
         fileChooser.setFileFilter(new RecordFileFilter());
     }
 

@@ -29,10 +29,9 @@ public class CellRenderer extends DefaultTableCellRenderer {
         if (col == 0) {
             if (label.getText().equals(PublisherTableValues.STOPPED)) {
                 label.setForeground(Color.RED.darker());
-            	//label.setBackground(Color.RED.darker());
-            	//label.setForeground(Color.WHITE.darker());
             } else if (label.getText().equals(PublisherTableValues.STARTED)) {
-                label.setForeground(Color.GREEN.darker());
+                //label.setForeground(Color.GREEN.darker());
+            	label.setForeground(Color.GREEN);
             } else if (label.getText().equals(PublisherTableValues.PAUSED)) {
                 label.setForeground(Color.YELLOW.darker());
             }

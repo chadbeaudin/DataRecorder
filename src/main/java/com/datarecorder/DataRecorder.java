@@ -866,6 +866,9 @@ public class DataRecorder extends JFrame implements TableCellEditor {
     protected void createFileChooser() {
         // FileChooser
         fileChooser = new JFileChooser();
+        
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+        
         final ProjectFilter filter = new ProjectFilter();
         fileChooser.setFileFilter(filter);
     }
@@ -2133,6 +2136,8 @@ public class DataRecorder extends JFrame implements TableCellEditor {
         if (publisherDirectory != null) {
             final File file = new File(publisherDirectory);
             PublisherEditor.fileChooser.setCurrentDirectory(file);
+        } else {
+        	PublisherEditor.fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
         }
 
         // subscriber
@@ -2140,6 +2145,8 @@ public class DataRecorder extends JFrame implements TableCellEditor {
         if (subscriberDirectory != null) {
             final File file = new File(subscriberDirectory);
             SubscriberEditor.fileChooser.setCurrentDirectory(file);
+        } else {
+        	SubscriberEditor.fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
         }
 
         // injector
@@ -2147,7 +2154,10 @@ public class DataRecorder extends JFrame implements TableCellEditor {
         if (injectorDirectory != null) {
             final File file = new File(injectorDirectory);
             ImageInjector.fileChooser.setCurrentDirectory(file);
+        } else {
+        	ImageInjector.fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
         }
+        	
 
         // auto-save option
         final String autoSave = propertiesFile.getProperty(FILTER + DOT + AUTOSAVE_PROPERTY);
