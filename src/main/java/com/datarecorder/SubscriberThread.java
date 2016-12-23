@@ -201,10 +201,12 @@ class SubscriberThread extends Thread implements MessageListener {
                     insertStartTimestamp = false;
                 }
 
-                // ***** normal message processing
+                // ***** normal message processing  
                 final long waitTime = currentTime - lastTime;
                 jsonMessage.setDelayMillis(waitTime);
-
+                
+                lastTime = currentTime;
+                
                 try {
                     logger.debug(jsonMessage.toString());
                     dos.write(jsonMessage.toString().getBytes());

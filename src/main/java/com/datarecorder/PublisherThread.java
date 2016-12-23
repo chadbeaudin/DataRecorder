@@ -276,6 +276,7 @@ class PublisherThread extends Thread {
             if (dr3FileIndex < lines.size()) {
                 dr3Message = OBJECT_MAPPER.readValue(lines.get(dr3FileIndex), DataRecorderMessage.class);
                 waitTime = dr3Message.getDelayMillis();
+                //System.out.println("waitTime: " + waitTime);
                 dr3FileIndex++;
                 messageFound = true;
             } else {
@@ -399,7 +400,9 @@ class PublisherThread extends Thread {
             br = new BufferedReader(new InputStreamReader(dis));
 
             suppressStartTimestamp = Boolean.getBoolean("publisher.suppress.start.timestamp");
+            
             messageCount = 0;
+            dr3FileIndex = 0;
         } catch (final FileNotFoundException e) {
             JOptionPane.showMessageDialog(recorder, "Publisher input file not found: " + file + 
             		"\nYou can't start this Publisher without a valid input file." +
