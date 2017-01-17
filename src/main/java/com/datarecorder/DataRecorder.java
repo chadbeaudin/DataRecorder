@@ -2125,11 +2125,11 @@ public class DataRecorder extends JFrame implements TableCellEditor {
         }
 
         // project
-        final String projectDirectory = propertiesFile.getProperty(FILTER + DOT + PROJECT_DIRECTORY_PROPERTY);
-        if (projectDirectory != null) {
-            final File file = new File(projectDirectory);
-            fileChooser.setCurrentDirectory(file);
-        }
+        //final String projectDirectory = propertiesFile.getProperty(FILTER + DOT + PROJECT_DIRECTORY_PROPERTY);
+        //if (projectDirectory != null) {
+        //    final File file = new File(projectDirectory);
+        //    fileChooser.setCurrentDirectory(file);
+        //}
 
         // publisher
         final String publisherDirectory = propertiesFile.getProperty(FILTER + DOT + PUBLISHER_DIRECTORY_PROPERTY);
